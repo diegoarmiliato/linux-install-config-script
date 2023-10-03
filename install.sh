@@ -1,105 +1,112 @@
 #!/usr/bin/env bash
 # ----------------------------- VARIÁVEIS ----------------------------- #
-PPA_LIBRATBAG="ppa:libratbag-piper/piper-libratbag-git"
-PPA_LUTRIS="ppa:lutris-team/lutris"
-PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
-
-URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
-URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
-URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-URL_SIMPLE_NOTE="https://github.com/Automattic/simplenote-electron/releases/download/v1.8.0/Simplenote-linux-1.8.0-amd64.deb"
-URL_4K_VIDEO_DOWNLOADER="https://dl.4kdownload.com/app/4kvideodownloader_4.9.2-1_amd64.deb"
-URL_INSYNC="https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.0.20.40428-bionic_amd64.deb"
-
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 PROGRAMAS_PARA_INSTALAR=(
-  snapd
-  mint-meta-codecs
-  winff
-  guvcview
-  virtualbox
-  flameshot
-  nemo-dropbox
-  steam-installer
-  steam-devices
-  steam:i386
-  ratbagd
-  piper
-  lutris
-  libvulkan1
-  libvulkan1:i386
-  libgnutls30:i386
-  libldap-2.4-2:i386
-  libgpg-error0:i386
-  libxml2:i386
-  libasound2-plugins:i386
-  libsdl2-2.0-0:i386
-  libfreetype6:i386
-  libdbus-1-3:i386
-  libsqlite3-0:i386
+  git																											  
 )
 # ---------------------------------------------------------------------- #
 
 # ----------------------------- REQUISITOS ----------------------------- #
-## Removendo travas eventuais do apt ##
-sudo rm /var/lib/dpkg/lock-frontend
-sudo rm /var/cache/apt/archives/lock
+## Atualizando o repositório ##
+echo "##############################################################################"
+echo "1. ATUALIZANDO REPOSITÓRIOS"
+echo "##############################################################################"
+sudo dnf update -y
+echo "1. FIM"
 
-## Adicionando/Confirmando arquitetura de 32 bits ##
-sudo dpkg --add-architecture i386
+## Alterando configurações DNF
+echo "##############################################################################"
+echo "2. ADICIONANDO PARAMETROS DNF.CONF"
+echo "##############################################################################"
+cat /etc/dnf/dnf.conf
+if ! cat /etc/dnf/dnf.conf | grep -q "max_parallel_downloads"; then sudo echo "max_parallel_downloads=10">>/etc/dnf/dnf.conf; fi
+if ! cat /etc/dnf/dnf.conf | grep -q "fastestmirror"; then sudo echo "fastestmirror=true">>/etc/dnf/dnf.conf; fi
+if ! cat /etc/dnf/dnf.conf | grep -q "deltarpm"; then sudo echo "deltarpm=true">>/etc/dnf/dnf.conf; fi
+cat /etc/dnf/dnf.conf
+echo "2. FIM"
 
 ## Atualizando o repositório ##
-sudo apt update -y
+echo "##############################################################################"
+echo "3. ATUALIZANDO REPOSITÓRIOS"
+echo "##############################################################################"
+sudo dnf update -y
+echo "3. FIM"
 
-## Adicionando repositórios de terceiros e suporte a Snap (Driver Logitech, Lutris e Drivers Nvidia)##
-sudo apt-add-repository "$PPA_LIBRATBAG" -y
-sudo add-apt-repository "$PPA_LUTRIS" -y
-sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
-wget -nc "$URL_WINE_KEY"
-sudo apt-key add winehq.key
-sudo apt-add-repository "deb $URL_PPA_WINE bionic main"
+echo "##############################################################################"
+echo "4. HABILITAR RPM FUSION FREE"
+echo "##############################################################################"
+## Habilitar RPM Fusion Free
+sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
+echo "4. FIM"
+
+echo "##############################################################################"
+echo "5. HABILITAR RPM FUSION NONFREE"
+echo "##############################################################################"
+## Habilitar RPM Fusion Nonfree
+sudo dnf install \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+echo "5. FIM"
+
+
+echo "##############################################################################"
+echo "6. EXECUTANDO DNF UPGRADE"
+echo "##############################################################################"
+## Atualizar com os dados dos repositórios adicionados
+sudo dnf upgrade --refresh
+echo "6. FIM"
+
+echo "##############################################################################"
+echo "7. INSTALAR CODECS DE MIDIA"
+echo "##############################################################################"
+## Instalar CODECs de Mídia
+sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel -y
+sudo dnf install lame\* --exclude=lame-devel -y
+sudo dnf group upgrade --with-optional Multimedia -y --allowerasing
+echo "7. FIM"
+
 # ---------------------------------------------------------------------- #
 
 # ----------------------------- EXECUÇÃO ----------------------------- #
 ## Atualizando o repositório depois da adição de novos repositórios ##
-sudo apt update -y
+echo "##############################################################################"
+echo "8. ATUALIZANDO REPOSITÓRIOS"
+echo "##############################################################################"
+sudo dnf update -y
+echo "8. FIM"
 
+echo "##############################################################################"
+echo "9. INSTALANDO PACOTES RPM"
+echo "##############################################################################"
 ## Download e instalaçao de programas externos ##
 mkdir "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_SIMPLE_NOTE"         -P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_4K_VIDEO_DOWNLOADER" -P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_INSYNC"              -P "$DIRETORIO_DOWNLOADS"
+## wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
-sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
+sudo dpkg -i $DIRETORIO_DOWNLOADS/*.rpm
+rm -rf "$DIRETORIO_DOWNLOADS"
+echo "9. FIM"
 
-# Instalar programas no apt
+echo "##############################################################################"
+echo "10. INSTALANDO APPS VIA DNF"
+echo "##############################################################################"
+# Instalar programas no dnf
 for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
-  if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
-    apt install "$nome_do_programa" -y
+  if ! rpm -qa | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
+    dnf install "$nome_do_programa" -y
   else
     echo "[INSTALADO] - $nome_do_programa"
   fi
 done
-
-sudo apt install --install-recommends winehq-stable wine-stable wine-stable-i386 wine-stable-amd64 -y
+echo "10. FIM"
 
 ## Instalando pacotes Flatpak ##
-flatpak install flathub com.obsproject.Studio -y
+echo "##############################################################################"
+echo "11. INSTALANDO APPS VIA FLATPAK"
+echo "##############################################################################"
+flatpak install flathub com.mattjakeman.ExtensionManager -y
+echo "11. FIM"
 
-## Instalando pacotes Snap ##
-sudo snap install spotify
-sudo snap install slack --classic
-sudo snap install skype --classic
-sudo snap install photogimp
-# ---------------------------------------------------------------------- #
-
-# ----------------------------- PÓS-INSTALAÇÃO ----------------------------- #
-## Finalização, atualização e limpeza##
-sudo apt update && sudo apt dist-upgrade -y
-flatpak update
-sudo apt autoclean
-sudo apt autoremove -y
-# ---------------------------------------------------------------------- #
+git config --global user.email "degoarmiliato@gmail.com"
+git config --global user.name "diegoarmiliato"
