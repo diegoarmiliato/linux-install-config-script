@@ -1,0 +1,7 @@
+https://extensions.gnome.org/extension/19/user-themes/
+https://extensions.gnome.org/extension/2890/tray-icons-reloaded/
+https://extensions.gnome.org/extension/36/lock-keys/
+https://extensions.gnome.org/extension/517/caffeine/
+https://extensions.gnome.org/extension/3193/blur-my-shell/
+https://extensions.gnome.org/extension/7/removable-drive-menu/
+https://extensions.gnome.org/extension/779/clipboard-indicator/

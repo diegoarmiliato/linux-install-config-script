@@ -9,6 +9,8 @@ PROGRAMAS_PARA_INSTALAR=(
   code
   nautilus-python
   bottles
+  tilix
+  gh
 )
 # ---------------------------------------------------------------------- #
 
@@ -91,3 +93,12 @@ flatpak install flathub com.rtosta.zapzap -y
 
 git config --global user.email "degoarmiliato@gmail.com"
 git config --global user.name "diegoarmiliato"
+
+## Instalando Extensões Gnome ##
+git clone https://github.com/ToasterUwU/install-gnome-extensions.git
+cd install-gnome-extensions
+chmod +x install-gnome-extensions.sh
+./install-gnome-extensions.sh --enable --file ./../gnome-extensions.txt
+cd ..
+rm -rf ./install-gnome-extensions
+
