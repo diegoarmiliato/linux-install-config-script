@@ -20,9 +20,9 @@ sudo dnf update -y
 ## Alterando configurações DNF
 echo "#### $(date +%T) - ADICIONANDO PARAMETROS DNF.CONF"
 cat /etc/dnf/dnf.conf
-if ! cat /etc/dnf/dnf.conf | grep -q "max_parallel_downloads"; then sudo echo "max_parallel_downloads=10">>/etc/dnf/dnf.conf; fi
-if ! cat /etc/dnf/dnf.conf | grep -q "fastestmirror"; then sudo echo "fastestmirror=true">>/etc/dnf/dnf.conf; fi
-if ! cat /etc/dnf/dnf.conf | grep -q "deltarpm"; then sudo echo "deltarpm=true">>/etc/dnf/dnf.conf; fi
+if ! cat /etc/dnf/dnf.conf | grep -q "max_parallel_downloads"; then echo "max_parallel_downloads=10" | sudo tee -a /etc/dnf/dnf.conf; fi
+if ! cat /etc/dnf/dnf.conf | grep -q "fastestmirror"; then echo "fastestmirror=true" | sudo tee -a /etc/dnf/dnf.conf; fi
+if ! cat /etc/dnf/dnf.conf | grep -q "deltarpm"; then echo "deltarpm=true" | sudo tee -a /etc/dnf/dnf.conf; fi
 cat /etc/dnf/dnf.conf
 
 ## Atualizando o repositório ##
