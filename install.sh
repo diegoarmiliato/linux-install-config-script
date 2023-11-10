@@ -11,6 +11,7 @@ PROGRAMAS_PARA_INSTALAR=(
   bottles
   tilix
   gh
+  zsh
 )
 # ---------------------------------------------------------------------- #
 
@@ -91,14 +92,33 @@ flatpak install flathub org.onlyoffice.desktopeditors -y
 flatpak install flathub nz.mega.MEGAsync -y
 flatpak install flathub com.rtosta.zapzap -y
 
+echo "#### $(date +%T) - CONFIGURAÇÕES GLOBAIS GIT"
 git config --global user.email "degoarmiliato@gmail.com"
 git config --global user.name "diegoarmiliato"
 
 ## Instalando Extensões Gnome ##
+echo "#### $(date +%T) - INSTALANDO EXTENSÕES GNOME"
 git clone https://github.com/ToasterUwU/install-gnome-extensions.git
 cd install-gnome-extensions
 chmod +x install-gnome-extensions.sh
 ./install-gnome-extensions.sh --enable --file ./../gnome-extensions.txt
 cd ..
 rm -rf ./install-gnome-extensions
+
+## Instalando Oh-My-Zsh
+echo "#### $(date +%T) - INSTALANDO OH-MY-ZSH"
+CURRENT_DIR=$(pwd)
+cd ~
+if [ -d "~/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  sed -i 's/plugins=(git/plugins=(git zsh-autosuggestions docker docker-compose gh/g' ~/.zshrc
+  sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dracula"/g' ~/.zshrc
+else
+  echo "Já instalado. Ignorando..."
+fi
+cd $CURRENT_DIR
+
+
+
 
