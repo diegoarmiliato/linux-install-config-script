@@ -109,11 +109,24 @@ rm -rf ./install-gnome-extensions
 echo "#### $(date +%T) - INSTALANDO OH-MY-ZSH"
 CURRENT_DIR=$(pwd)
 cd ~
-if [ -d "~/.oh-my-zsh" ]; then
+if [ -d ".oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  echo "#### $(date +%T) - INSTALANDO PLUGIN AUTOSUGGESTION ZSH"
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   sed -i 's/plugins=(git/plugins=(git zsh-autosuggestions docker docker-compose gh/g' ~/.zshrc
+
+  echo "#### $(date +%T) - INSTALANDO TEMA DRACULA ZSH"
+  cd Downloads
+  git clone https://github.com/dracula/zsh.git
+  cd zsh
+  cp dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
+  cp -r lib ~/.oh-my-zsh/themes
   sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dracula"/g' ~/.zshrc
+  cd ..
+  rm -rf zsh
+
+  source ~/.zshrc
 else
   echo "Já instalado. Ignorando..."
 fi
