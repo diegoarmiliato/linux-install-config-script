@@ -17,6 +17,11 @@ PROGRAMAS_PARA_INSTALAR=(
   tilix
   gh
   zsh
+  gnome-tweaks
+  breeze-cursor-theme
+  dconf-editor
+  rclone
+  rclone-browser
 )
 
 COLOR='\033[1;36m'         # Cyan
@@ -100,6 +105,7 @@ flatpak install flathub com.mattjakeman.ExtensionManager -y
 flatpak install flathub org.onlyoffice.desktopeditors -y
 flatpak install flathub nz.mega.MEGAsync -y
 flatpak install flathub com.rtosta.zapzap -y
+flatpak install flathub com.logseq.Logseq -y
 
 echo -e "${COLOR}#### $(date +%T) - CONFIGURAÇÕES GLOBAIS GIT${NC}"
 git config --global user.email "degoarmiliato@gmail.com"
@@ -113,6 +119,11 @@ chmod +x install-gnome-extensions.sh
 ./install-gnome-extensions.sh --enable --file ./../gnome-extensions.txt
 cd ..
 rm -rf ./install-gnome-extensions
+
+## Trocando o Tema
+echo -e "${COLOR}#### $(date +%T) - INSTALANDO CURSOR BREEZE${NC}"
+dconf write /org/gnome/desktop/interface/cursor-theme "'breeze_cursors'"
+dconf update
 
 ## Instalando Oh-My-Zsh
 echo -e "${COLOR}#### $(date +%T) - INSTALANDO OH-MY-ZSH${NC}"
@@ -140,7 +151,4 @@ else
   echo "Já instalado. Ignorando..."
 fi
 cd $CURRENT_DIR
-
-
-
 
