@@ -72,6 +72,10 @@ Instala as extensões listadas no arquivo [gnome-extensions.txt](./gnome-extensi
 >- [Removable Drive Menu](https://extensions.gnome.org/extension/7/removable-drive-menu/)
 >- [Clipboard Indicator](https://extensions.gnome.org/extension/779/clipboard-indicator/)
 
+Desinstala a extensão padrão de marca d'água do Fefora
+
+>- [Gnome Shell Background Logo](https://src.fedoraproject.org/rpms/gnome-shell-extension-background-logo)
+
 #
 <a id="troca-tema-padrao"></a>
 ### Troca o Tema Padrão

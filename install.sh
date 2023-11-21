@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # ----------------------------- VARIÁVEIS ----------------------------- #
+USER=$(whoami)
 LOG_FILE="./log/install-$(date +%T).log"
 mkdir -p log
 exec > >(tee ${LOG_FILE}) 2>&1
@@ -116,9 +117,13 @@ echo -e "${COLOR}#### $(date +%T) - INSTALANDO EXTENSÕES GNOME${NC}"
 git clone https://github.com/ToasterUwU/install-gnome-extensions.git
 cd install-gnome-extensions
 chmod +x install-gnome-extensions.sh
-./install-gnome-extensions.sh --enable --file ./../gnome-extensions.txt
+./install-gnome-extensions.sh -e --file ./../gnome-extensions.txt
 cd ..
 rm -rf ./install-gnome-extensions
+
+## Removendo Backgound Logo
+echo -e "${COLOR}#### $(date +%T) - REMOVENDO EXTENSÃO BACKGROUND LOGO FEDORA${NC}"
+sudo dnf remove gnome-shell-extension-background-logo -y
 
 ## Trocando o Tema
 echo -e "${COLOR}#### $(date +%T) - INSTALANDO CURSOR BREEZE${NC}"
@@ -130,7 +135,15 @@ echo -e "${COLOR}#### $(date +%T) - INSTALANDO OH-MY-ZSH${NC}"
 CURRENT_DIR=$(pwd)
 cd ~
 if [ ! -d ".oh-my-zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &
+
+  echo "Waiting Oh-My-Zsh installation to finish ..."
+  until [ -d ".oh-my-zsh" ]
+  do     
+     sleep 5
+     echo "..."
+  done
+  echo "finished"
 
   echo -e "${COLOR}#### $(date +%T) - INSTALANDO PLUGIN AUTOSUGGESTION ZSH${NC}"
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -145,8 +158,7 @@ if [ ! -d ".oh-my-zsh" ]; then
   sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dracula"/g' ~/.zshrc
   cd ..
   rm -rf zsh
-
-  source ~/.zshrc
+  chsh -s /bin/zsh $USER
 else
   echo "Já instalado. Ignorando..."
 fi
