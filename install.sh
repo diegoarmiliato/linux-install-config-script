@@ -23,6 +23,7 @@ PROGRAMAS_PARA_INSTALAR=(
   dconf-editor
   rclone
   rclone-browser
+  rabbitvcs-nautilus
 )
 
 COLOR='\033[1;36m'         # Cyan
