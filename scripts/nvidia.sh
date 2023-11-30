@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-LOG_FILE="./log/nvidia-$(date +%T).log"
-mkdir -p log
+LOG_FILE="./../log/nvidia-$(date +%T).log"
+mkdir -p ./../log
 exec > >(tee ${LOG_FILE}) 2>&1
 
 COLOR='\033[1;36m'         # Cyan

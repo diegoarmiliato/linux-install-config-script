@@ -24,6 +24,7 @@ PROGRAMAS_PARA_INSTALAR=(
   rclone
   rclone-browser
   rabbitvcs-nautilus
+  distrobox
 )
 
 COLOR='\033[1;36m'         # Cyan
