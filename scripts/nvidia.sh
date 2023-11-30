@@ -32,6 +32,15 @@ else
     sudo akmods --force
     sudo dracut --force
 
+    echo -e "${COLOR}#### $(date +%T) - DESABILITANDO SERVICO NVIDIA-POWERD${NC}"
+    sudo systemctl disable nvidia-powerd.service
+
+    echo -e "${COLOR}#### $(date +%T) - HABILITANDO SERVICO NVIDIA-PERSISTENCE${NC}"
+    sudo systemctl enable nvidia-persistenced.service
+
+    echo -e "${COLOR}#### $(date +%T) - HABILITANDO DYNAMIC POWER MANAGEMENT${NC}"
+    echo "options nvidia \"NVreg_DynamicPowerManagement=0x02\"" | sudo tee /etc/modprobe.d/nvidia-pm.conf
+
     echo -e "${COLOR}#### $(date +%T) - REINICIANDO EM 10 SEGUNDOS${NC}"
     sleep 10s
     sudo reboot
