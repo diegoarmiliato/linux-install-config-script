@@ -178,10 +178,7 @@ if ! command -v docker &>/dev/null; then
   sudo usermod -aG docker $USER
   sudo systemctl enable docker.service
   sudo systemctl enable containerd.service
-  sudo systemctl start docker  
-  wget -c "https://desktop.docker.com/linux/main/amd64/docker-desktop-4.26.0-x86_64.rpm" -P "$DIRETORIO_DOWNLOADS"
-  sudo rpm -i $DIRETORIO_DOWNLOADS/*.rpm
-  rm -rf "$DIRETORIO_DOWNLOADS"
+  sudo systemctl start docker
 else
   echo "Já instalado. Ignorando..."
 fi

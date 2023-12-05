@@ -60,6 +60,8 @@ Adiciona os seguintes parâmetros para o arquivos dnf.conf
 >- [MEGA Sync](https://flathub.org/pt-BR/apps/nz.mega.MEGAsync)
 >- [ZapZap WhatsApp Client](https://flathub.org/pt-BR/apps/com.rtosta.zapzap)
 >- [Logseq](https://flathub.org/pt-BR/apps/com.mattjakeman.ExtensionManager)
+>- [Mission Center](https://flathub.org/pt-BR/apps/io.missioncenter.MissionCenter)
+>- [GDM Settings](https://flathub.org/pt-BR/apps/io.github.realmazharhussain.GdmSettings)
 
 #
 <a id="instalacao-extensoes-gnome"></a>
