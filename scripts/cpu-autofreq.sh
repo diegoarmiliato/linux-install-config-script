@@ -10,7 +10,7 @@ cd auto-cpufreq
 
 chmod +x auto-cpufreq-installer
 
-sudo auto-cpufreq-installer
+sudo ./auto-cpufreq-installer
 
 sudo auto-cpufreq --install
 

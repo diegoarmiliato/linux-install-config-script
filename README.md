@@ -43,6 +43,7 @@ Adiciona os seguintes parâmetros para o arquivos dnf.conf
 > - max_parallel_downloads=10
 > - fastestmirror=true\n
 > - deltarpm=true
+> - defaultyes=true
 
 #
 <a id="instalacao-rpm"></a>
