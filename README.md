@@ -13,6 +13,7 @@ Realiza os seguintes passos de forma automatizada:
 - [instalação de extensões GNOME](#instalacao-extensoes-gnome)
 - [troca do tema padrão](#troca-tema-padrao)
 - [instalação Oh-My-Zsh](#instalacao-oh-my-zsh)
+- [instalação docker](#instalacao-docker)
 
 #
 <a id="instalacao-dnf"></a>
@@ -30,6 +31,8 @@ Realiza os seguintes passos de forma automatizada:
 > - dconf-editor
 > - rclone
 > - rclone-browser
+> - rabbitvcs-nautilus
+> - distrobox
 
 #
 <a id="dnf-conf"></a>
@@ -98,3 +101,16 @@ Ativa por padrão os plugins do ZSH:
 >- docker
 >- docker-compose
 >- gh
+
+#
+<a id="instalacao-docker"></a>
+### Instalação Docker
+
+Instala o Docker seguindo o tutorial abaixo:
+https://docs.docker.com/engine/install/fedora/
+
+Executa os passos pós instalação descritos no tópico abaixo:
+https://docs.docker.com/engine/install/linux-postinstall/
+
+Instala o Docker Desktop como um pacote RPM seguindo o tutorial:
+https://docs.docker.com/desktop/install/fedora/

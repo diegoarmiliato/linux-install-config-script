@@ -5,3 +5,4 @@ https://extensions.gnome.org/extension/517/caffeine/
 https://extensions.gnome.org/extension/3193/blur-my-shell/
 https://extensions.gnome.org/extension/7/removable-drive-menu/
 https://extensions.gnome.org/extension/779/clipboard-indicator/
+https://extensions.gnome.org/extension/3843/just-perfection/
