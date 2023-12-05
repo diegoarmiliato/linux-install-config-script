@@ -62,6 +62,8 @@ Adiciona os seguintes parâmetros para o arquivos dnf.conf
 >- [Logseq](https://flathub.org/pt-BR/apps/com.mattjakeman.ExtensionManager)
 >- [Mission Center](https://flathub.org/pt-BR/apps/io.missioncenter.MissionCenter)
 >- [GDM Settings](https://flathub.org/pt-BR/apps/io.github.realmazharhussain.GdmSettings)
+>- [Podman Desktop](https://flathub.org/pt-BR/apps/io.podman_desktop.PodmanDesktop)
+>- [Vivaldi Browser](https://flathub.org/pt-BR/apps/com.vivaldi.Vivaldi)
 
 #
 <a id="instalacao-extensoes-gnome"></a>
@@ -105,7 +107,7 @@ Ativa por padrão os plugins do ZSH:
 >- docker-compose
 >- gh
 
-#
+<!-- #
 <a id="instalacao-docker"></a>
 ### Instalação Docker
 
@@ -116,4 +118,4 @@ Executa os passos pós instalação descritos no tópico abaixo:
 https://docs.docker.com/engine/install/linux-postinstall/
 
 Instala o Docker Desktop como um pacote RPM seguindo o tutorial:
-https://docs.docker.com/desktop/install/fedora/
+https://docs.docker.com/desktop/install/fedora/ -->

@@ -112,6 +112,8 @@ flatpak install flathub com.rtosta.zapzap -y
 flatpak install flathub com.logseq.Logseq -y
 flatpak install flathub io.missioncenter.MissionCenter -y
 flatpak install flathub io.github.realmazharhussain.GdmSettings -y
+flatpak install flathub io.podman_desktop.PodmanDesktop -y
+flatpak install flathub com.vivaldi.Vivaldi -y
 
 echo -e "${COLOR}#### $(date +%T) - CONFIGURAÇÕES GLOBAIS GIT${NC}"
 git config --global user.email "degoarmiliato@gmail.com"
@@ -169,17 +171,17 @@ else
 fi
 cd $CURRENT_DIR
 
-echo -e "${COLOR}#### $(date +%T) - INSTALANDO DOCKER${NC}"
-if ! command -v docker &>/dev/null; then
-  sudo dnf install dnf-plugins-core -y
-  sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-  sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose -y
-  sudo groupadd docker
-  sudo usermod -aG docker $USER
-  sudo systemctl enable docker.service
-  sudo systemctl enable containerd.service
-  sudo systemctl start docker
-else
-  echo "Já instalado. Ignorando..."
-fi
+# echo -e "${COLOR}#### $(date +%T) - INSTALANDO DOCKER${NC}"
+# if ! command -v docker &>/dev/null; then
+#   sudo dnf install dnf-plugins-core -y
+#   sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+#   sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose -y
+#   sudo groupadd docker
+#   sudo usermod -aG docker $USER
+#   sudo systemctl enable docker.service
+#   sudo systemctl enable containerd.service
+#   sudo systemctl start docker
+# else
+#   echo "Já instalado. Ignorando..."
+# fi
 
