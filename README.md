@@ -107,7 +107,7 @@ Ativa por padrão os plugins do ZSH:
 >- docker-compose
 >- gh
 
-<!-- #
+#
 <a id="instalacao-docker"></a>
 ### Instalação Docker
 
@@ -118,4 +118,4 @@ Executa os passos pós instalação descritos no tópico abaixo:
 https://docs.docker.com/engine/install/linux-postinstall/
 
 Instala o Docker Desktop como um pacote RPM seguindo o tutorial:
-https://docs.docker.com/desktop/install/fedora/ -->
+https://docs.docker.com/desktop/install/fedora/

@@ -135,6 +135,7 @@ sudo dnf remove gnome-shell-extension-background-logo -y
 ## Trocando o Tema
 echo -e "${COLOR}#### $(date +%T) - INSTALANDO CURSOR BREEZE${NC}"
 dconf write /org/gnome/desktop/interface/cursor-theme "'breeze_cursors'"
+dconf write /org/gnome/desktop/interface/text-scaling-factor "1.1"
 dconf update
 
 ## Instalando Oh-My-Zsh
@@ -171,17 +172,17 @@ else
 fi
 cd $CURRENT_DIR
 
-# echo -e "${COLOR}#### $(date +%T) - INSTALANDO DOCKER${NC}"
-# if ! command -v docker &>/dev/null; then
-#   sudo dnf install dnf-plugins-core -y
-#   sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-#   sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose -y
-#   sudo groupadd docker
-#   sudo usermod -aG docker $USER
-#   sudo systemctl enable docker.service
-#   sudo systemctl enable containerd.service
-#   sudo systemctl start docker
-# else
-#   echo "Já instalado. Ignorando..."
-# fi
+echo -e "${COLOR}#### $(date +%T) - INSTALANDO DOCKER${NC}"
+if ! command -v docker &>/dev/null; then
+  sudo dnf install dnf-plugins-core -y
+  sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+  sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose -y
+  sudo groupadd docker
+  sudo usermod -aG docker $USER
+  sudo systemctl enable docker.service
+  sudo systemctl enable containerd.service
+  sudo systemctl start docker
+else
+  echo "Já instalado. Ignorando..."
+fi
 
