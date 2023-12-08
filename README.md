@@ -64,6 +64,7 @@ Adiciona os seguintes parâmetros para o arquivos dnf.conf
 >- [GDM Settings](https://flathub.org/pt-BR/apps/io.github.realmazharhussain.GdmSettings)
 >- [Podman Desktop](https://flathub.org/pt-BR/apps/io.podman_desktop.PodmanDesktop)
 >- [Vivaldi Browser](https://flathub.org/pt-BR/apps/com.vivaldi.Vivaldi)
+>- [Bitwarden](https://flathub.org/pt-BR/apps/com.bitwarden.desktop)
 
 #
 <a id="instalacao-extensoes-gnome"></a>
@@ -73,12 +74,13 @@ Instala as extensões listadas no arquivo [gnome-extensions.txt](./gnome-extensi
 
 >- [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 >- [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
->- [Tray Icons Reloaded](https://extensions.gnome.org/extension/2890/tray-icons-reloaded/)
+>- [AppIndicator and KStatusNotifierItem Support](https://extensions.gnome.org/extension/615/appindicator-support/)
 >- [Lock Keys Indicator](https://extensions.gnome.org/extension/36/lock-keys/)
 >- [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 >- [Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/)
 >- [Removable Drive Menu](https://extensions.gnome.org/extension/7/removable-drive-menu/)
 >- [Clipboard Indicator](https://extensions.gnome.org/extension/779/clipboard-indicator/)
+>- [Battery Usage Wattmeter](https://extensions.gnome.org/extension/6278/battery-usage-wattmeter/)
 
 Desinstala a extensão padrão de marca d'água do Fefora
 
