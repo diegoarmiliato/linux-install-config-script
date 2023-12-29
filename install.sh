@@ -25,6 +25,7 @@ PROGRAMAS_PARA_INSTALAR=(
   rclone-browser
   rabbitvcs-nautilus
   distrobox
+  glogg
 )
 
 COLOR='\033[1;36m'         # Cyan
@@ -113,7 +114,6 @@ flatpak install flathub com.logseq.Logseq -y
 flatpak install flathub io.missioncenter.MissionCenter -y
 flatpak install flathub io.github.realmazharhussain.GdmSettings -y
 flatpak install flathub io.podman_desktop.PodmanDesktop -y
-flatpak install flathub com.vivaldi.Vivaldi -y
 flatpak install flathub com.bitwarden.desktop -y
 
 echo -e "${COLOR}#### $(date +%T) - CONFIGURAÇÕES GLOBAIS GIT${NC}"
@@ -187,3 +187,5 @@ else
   echo "Já instalado. Ignorando..."
 fi
 
+echo -e "${COLOR}#### $(date +%T) - INSTALANDO TAILSCALE${NC}"
+curl -fsSL https://tailscale.com/install.sh | sh

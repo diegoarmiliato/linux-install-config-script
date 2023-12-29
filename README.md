@@ -14,6 +14,7 @@ Realiza os seguintes passos de forma automatizada:
 - [troca do tema padrão](#troca-tema-padrao)
 - [instalação Oh-My-Zsh](#instalacao-oh-my-zsh)
 - [instalação docker](#instalacao-docker)
+- [instalação tailscale](#instalacao-tailscale)
 
 #
 <a id="instalacao-dnf"></a>
@@ -33,6 +34,7 @@ Realiza os seguintes passos de forma automatizada:
 > - rclone-browser
 > - rabbitvcs-nautilus
 > - distrobox
+> - glogg
 
 #
 <a id="dnf-conf"></a>
@@ -63,7 +65,6 @@ Adiciona os seguintes parâmetros para o arquivos dnf.conf
 >- [Mission Center](https://flathub.org/pt-BR/apps/io.missioncenter.MissionCenter)
 >- [GDM Settings](https://flathub.org/pt-BR/apps/io.github.realmazharhussain.GdmSettings)
 >- [Podman Desktop](https://flathub.org/pt-BR/apps/io.podman_desktop.PodmanDesktop)
->- [Vivaldi Browser](https://flathub.org/pt-BR/apps/com.vivaldi.Vivaldi)
 >- [Bitwarden](https://flathub.org/pt-BR/apps/com.bitwarden.desktop)
 
 #
@@ -121,3 +122,9 @@ https://docs.docker.com/engine/install/linux-postinstall/
 
 Instala o Docker Desktop como um pacote RPM seguindo o tutorial:
 https://docs.docker.com/desktop/install/fedora/
+
+#
+<a id="instalacao-tailscale"></a>
+### Instalação Tailscale
+
+Instala a Aplicação (Tailscale)[https://tailscale.com] para conexão a VPN da Dinâmica
