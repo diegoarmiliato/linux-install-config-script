@@ -7,6 +7,7 @@ exec > >(tee ${LOG_FILE}) 2>&1
 
 
 URL_REAL_VNC="https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.6.1-Linux-x64.rpm"
+URL_DOCKER_DESKTOP="https://desktop.docker.com/linux/fedora/32/x86_64/stable/Docker-20.10.6-1.x86_64.rpm"
 
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
@@ -189,6 +190,14 @@ if ! command -v docker &>/dev/null; then
   sudo systemctl enable docker.service
   sudo systemctl enable containerd.service
   sudo systemctl start docker
+
+  echo -e "${COLOR}#### $(date +%T) - INSTALANDO DOCKER DESKTOP${NC}"
+  mkdir "$DIRETORIO_DOWNLOADS"
+  wget -c "$URL_DOCKER_DESKTOP" -P "$DIRETORIO_DOWNLOADS"
+  sudo rpm -i $DIRETORIO_DOWNLOADS/*.rpm
+  rm -rf "$DIRETORIO_DOWNLOADS"
+  systemctl --user enable docker-desktop
+  systemctl --user start docker-desktop
 else
   echo "Já instalado. Ignorando..."
 fi
