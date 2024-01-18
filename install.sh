@@ -29,7 +29,6 @@ PROGRAMAS_PARA_INSTALAR=(
   glogg
   jetbrains-mono-fonts
   rsms-inter-fonts
-  tailscale
   fira-code-fonts
   powerline-fonts
   adw-gtk3-theme  
@@ -163,17 +162,17 @@ if [ ! -d ".oh-my-zsh" ]; then
 
   echo -e "${COLOR}#### $(date +%T) - INSTALANDO PLUGIN AUTOSUGGESTION ZSH${NC}"
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-  sed -i 's/plugins=(git/plugins=(git zsh-autosuggestions docker docker-compose gh/g' ~/.zshrc
 
-  echo -e "${COLOR}#### $(date +%T) - INSTALANDO TEMA DRACULA ZSH${NC}"
-  cd Downloads
-  git clone https://github.com/dracula/zsh.git
-  cd zsh
-  cp dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
-  cp -r lib ~/.oh-my-zsh/themes
-  sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dracula"/g' ~/.zshrc
-  cd ..
-  rm -rf zsh
+  echo -e "${COLOR}#### $(date +%T) - INSTALANDO PLUGIN SYNTAX HIGHLIGHTING ZSH${NC}"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+  sed -i 's/plugins=(git/plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker docker-compose gh/g' ~/.zshrc
+
+  echo -e "${COLOR}#### $(date +%T) - INSTALANDO TEMA SPACESHIP ZSH${NC}"
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship-prompt" --depth=1
+  ln -s "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship-prompt/spaceship.zsh-theme" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship.zsh-theme"
+  sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="spaceship"/g' ~/.zshrc
+
   chsh -s /bin/zsh $USER
 else
   echo "Já instalado. Ignorando..."

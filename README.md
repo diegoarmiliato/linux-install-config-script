@@ -27,7 +27,6 @@ Realiza os seguintes passos de forma automatizada:
 > - tilix
 > - gh
 > - zsh
-> - zsh-syntax-highlighting
 > - gnome-tweaks
 > - breeze-cursor-theme
 > - dconf-editor
@@ -38,7 +37,6 @@ Realiza os seguintes passos de forma automatizada:
 > - glogg
 > - jetbrains-mono-fonts
 > - rsms-inter-fonts
-> - tailscale
 > - fira-code-fonts
 > - powerline-fonts
 > - adw-gtk3-theme
@@ -106,13 +104,14 @@ Troca o cursor padrão para o Breeze Cursor.
 
 Instala o Oh-My-Zsh para incrementar o terminal ZSH.
 
-Instala também o Plugin [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) no ZSH.
+Instala também os Plugins [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) e [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) no ZSH.
 
-Instala o tema [Dracula](https://github.com/dracula/zsh.git) no ZSH.
+Instala o [Spaceshipt Prompt](https://spaceship-prompt.sh/).
 
 Ativa por padrão os plugins do ZSH:
 >- git
 >- zsh-autosuggestions
+>- zsh-syntax-highlighting
 >- docker
 >- docker-compose
 >- gh
