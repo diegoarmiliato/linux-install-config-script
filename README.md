@@ -87,7 +87,7 @@ Instala as extensões listadas no arquivo [gnome-extensions.txt](./gnome-extensi
 >- [Clipboard Indicator](https://extensions.gnome.org/extension/779/clipboard-indicator/)
 >- [Battery Usage Wattmeter](https://extensions.gnome.org/extension/6278/battery-usage-wattmeter/)
 
-Desinstala a extensão padrão de marca d'água do Fefora
+Desinstala a extensão padrão de marca d'água do Fedora
 
 >- [Gnome Shell Background Logo](https://src.fedoraproject.org/rpms/gnome-shell-extension-background-logo)
 
@@ -119,10 +119,10 @@ Ativa por padrão os plugins do ZSH:
 <a id="instalacao-docker"></a>
 ### Instalação Docker
 
-Instala o Docker seguindo o tutorial abaixo:
+Instala o Docker seguindo o tutorial:
 https://docs.docker.com/engine/install/fedora/
 
-Executa os passos pós instalação descritos no tópico abaixo:
+Executa os passos pós instalação descritos no tópico:
 https://docs.docker.com/engine/install/linux-postinstall/
 
 Instala o Docker Desktop como um pacote RPM seguindo o tutorial:
