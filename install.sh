@@ -18,6 +18,7 @@ PROGRAMAS_PARA_INSTALAR=(
   tilix
   gh
   zsh
+  zsh-syntax-highlighting
   gnome-tweaks
   breeze-cursor-theme
   dconf-editor
@@ -26,6 +27,12 @@ PROGRAMAS_PARA_INSTALAR=(
   rabbitvcs-nautilus
   distrobox
   glogg
+  jetbrains-mono-fonts
+  rsms-inter-fonts
+  tailscale
+  fira-code-fonts
+  powerline-fonts
+  adw-gtk3-theme  
 )
 
 COLOR='\033[1;36m'         # Cyan

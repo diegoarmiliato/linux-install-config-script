@@ -27,6 +27,7 @@ Realiza os seguintes passos de forma automatizada:
 > - tilix
 > - gh
 > - zsh
+> - zsh-syntax-highlighting
 > - gnome-tweaks
 > - breeze-cursor-theme
 > - dconf-editor
@@ -35,6 +36,12 @@ Realiza os seguintes passos de forma automatizada:
 > - rabbitvcs-nautilus
 > - distrobox
 > - glogg
+> - jetbrains-mono-fonts
+> - rsms-inter-fonts
+> - tailscale
+> - fira-code-fonts
+> - powerline-fonts
+> - adw-gtk3-theme
 
 #
 <a id="dnf-conf"></a>
