@@ -120,7 +120,6 @@ flatpak install flathub com.rtosta.zapzap -y
 flatpak install flathub com.logseq.Logseq -y
 flatpak install flathub io.missioncenter.MissionCenter -y
 flatpak install flathub io.github.realmazharhussain.GdmSettings -y
-flatpak install flathub io.podman_desktop.PodmanDesktop -y
 flatpak install flathub com.bitwarden.desktop -y
 
 echo -e "${COLOR}#### $(date +%T) - CONFIGURAÇÕES GLOBAIS GIT${NC}"

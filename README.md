@@ -69,7 +69,6 @@ Adiciona os seguintes parâmetros para o arquivos dnf.conf
 >- [Logseq](https://flathub.org/pt-BR/apps/com.mattjakeman.ExtensionManager)
 >- [Mission Center](https://flathub.org/pt-BR/apps/io.missioncenter.MissionCenter)
 >- [GDM Settings](https://flathub.org/pt-BR/apps/io.github.realmazharhussain.GdmSettings)
->- [Podman Desktop](https://flathub.org/pt-BR/apps/io.podman_desktop.PodmanDesktop)
 >- [Bitwarden](https://flathub.org/pt-BR/apps/com.bitwarden.desktop)
 
 #
