@@ -184,8 +184,12 @@ if ! command -v docker &>/dev/null; then
   sudo dnf install dnf-plugins-core -y
   sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
   sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose -y
+  # Limitando o uso de memória do docker
+  sudo sed -i 's/LimitNOFILE=infinity/LimitNOFILE=1048576/g' /usr/lib/systemd/system/containerd.service
+  # Adicionando usuário ao grupo do docker
   sudo groupadd docker
   sudo usermod -aG docker $USER
+  # Habilitando e iniciando o serviço do docker
   sudo systemctl enable docker.service
   sudo systemctl enable containerd.service
   sudo systemctl start docker
