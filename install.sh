@@ -153,6 +153,7 @@ if [ ! -d ".oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &
 
   echo "Waiting Oh-My-Zsh installation to finish ..."
+  sleep 20
   until [ -d ".oh-my-zsh" ]
   do     
      sleep 5
