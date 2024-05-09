@@ -162,16 +162,16 @@ if [ ! -d ".oh-my-zsh" ]; then
   echo "finished"
 
   echo -e "${COLOR}#### $(date +%T) - INSTALANDO PLUGIN AUTOSUGGESTION ZSH${NC}"
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
   echo -e "${COLOR}#### $(date +%T) - INSTALANDO PLUGIN SYNTAX HIGHLIGHTING ZSH${NC}"
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
   sed -i 's/plugins=(git/plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker docker-compose gh/g' ~/.zshrc
 
   echo -e "${COLOR}#### $(date +%T) - INSTALANDO TEMA SPACESHIP ZSH${NC}"
-  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship-prompt" --depth=1
-  ln -s "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship-prompt/spaceship.zsh-theme" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship.zsh-theme"
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/spaceship-prompt" --depth=1
+  ln -s "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/spaceship-prompt/spaceship.zsh-theme" "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/spaceship.zsh-theme"
   sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="spaceship"/g' ~/.zshrc
 
   chsh -s /bin/zsh $USER
@@ -195,7 +195,7 @@ if ! command -v docker &>/dev/null; then
   sudo systemctl enable containerd.service
   sudo systemctl start docker
 
-  echo -e "${COLOR}#### $(date +%T) - INSTALANDO DOCKER DESKTOP${NC}"
+  c
   mkdir "$DIRETORIO_DOWNLOADS"
   wget -c "$URL_DOCKER_DESKTOP" -P "$DIRETORIO_DOWNLOADS"
   sudo rpm -i $DIRETORIO_DOWNLOADS/*.rpm
