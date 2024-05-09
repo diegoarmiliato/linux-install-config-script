@@ -7,7 +7,7 @@ exec > >(tee ${LOG_FILE}) 2>&1
 
 
 URL_REAL_VNC="https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.6.1-Linux-x64.rpm"
-URL_DOCKER_DESKTOP="https://desktop.docker.com/linux/fedora/32/x86_64/stable/Docker-20.10.6-1.x86_64.rpm"
+URL_DOCKER_DESKTOP="https://desktop.docker.com/linux/main/amd64/149282/docker-desktop-4.30.0-x86_64.rpm"
 
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
@@ -113,14 +113,14 @@ done
 
 ## Instalando pacotes Flatpak ##
 echo -e "${COLOR}#### $(date +%T) - INSTALANDO APPS VIA FLATPAK${NC}"
-flatpak install flathub com.mattjakeman.ExtensionManager -y
-flatpak install flathub org.onlyoffice.desktopeditors -y
-flatpak install flathub nz.mega.MEGAsync -y
-flatpak install flathub com.rtosta.zapzap -y
-flatpak install flathub com.logseq.Logseq -y
-flatpak install flathub io.missioncenter.MissionCenter -y
-flatpak install flathub io.github.realmazharhussain.GdmSettings -y
-flatpak install flathub com.bitwarden.desktop -y
+flatpak install flathub com.mattjakeman.ExtensionManager -y --noninteractive
+flatpak install flathub org.onlyoffice.desktopeditors -y --noninteractive
+flatpak install flathub nz.mega.MEGAsync -y --noninteractive
+flatpak install flathub com.rtosta.zapzap -y --noninteractive
+flatpak install flathub com.logseq.Logseq -y --noninteractive
+flatpak install flathub io.missioncenter.MissionCenter -y --noninteractive
+flatpak install flathub io.github.realmazharhussain.GdmSettings -y --noninteractive
+flatpak install flathub com.bitwarden.desktop -y --noninteractive
 
 echo -e "${COLOR}#### $(date +%T) - CONFIGURAÇÕES GLOBAIS GIT${NC}"
 git config --global user.email "degoarmiliato@gmail.com"
