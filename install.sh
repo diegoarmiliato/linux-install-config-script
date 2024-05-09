@@ -27,7 +27,7 @@ PROGRAMAS_PARA_INSTALAR=(
   rclone-browser
   rabbitvcs-nautilus
   distrobox
-  glogg
+  glogge
   jetbrains-mono-fonts
   rsms-inter-fonts
   fira-code-fonts
@@ -140,10 +140,17 @@ echo -e "${COLOR}#### $(date +%T) - REMOVENDO EXTENSÃO BACKGROUND LOGO FEDORA${
 sudo dnf remove gnome-shell-extension-background-logo -y
 
 ## Trocando o Tema
-echo -e "${COLOR}#### $(date +%T) - INSTALANDO CURSOR BREEZE${NC}"
+echo -e "${COLOR}#### $(date +%T) - INSTALANDO NORDZY-ICON${NC}"
+git clone https://github.com/alvatip/Nordzy-icon $HOME/Downloads/Nordzy-icon
+cd Nordzy-icon
+./install.sh
+
+echo -e "${COLOR}#### $(date +%T) - ALTERANDO PARAMETROS DCONF DO TEMA${NC}"
+dconf write /org/gnome/desktop/interface/icon-theme "'Nordzy-dark'"
 dconf write /org/gnome/desktop/interface/cursor-theme "'breeze_cursors'"
 dconf write /org/gnome/desktop/interface/text-scaling-factor "1.1"
 dconf update
+
 
 ## Instalando Oh-My-Zsh
 echo -e "${COLOR}#### $(date +%T) - INSTALANDO OH-MY-ZSH${NC}"
